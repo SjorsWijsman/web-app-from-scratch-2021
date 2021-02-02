@@ -7,7 +7,12 @@ export function getData(accessToken) {
   const playlistsUrl = `${baseUrl}/playlists?limit=50`;
 
   fetchData(playlistsUrl, accessToken).then(data => {
-    displayPlaylists(data);
+    if (!data.error) {
+      displayPlaylists(data);
+    }
+    else {
+      console.log(data.error);
+    }
   })
 }
 
