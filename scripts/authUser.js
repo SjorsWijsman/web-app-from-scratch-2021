@@ -42,6 +42,7 @@ function getAccessToken() {
   }
 };
 
+// Get current user data and store its id in localStorage
 function getUserData(accessToken) {
   fetchData(`https://api.spotify.com/v1/me`, accessToken).then(data => {
     if (!data.error) {
