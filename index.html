@@ -15,8 +15,8 @@
     <section id="playlists-container"/>
       <header>
         <h2>Your Playlists</h2>
-        <input type="checkbox" id="playlist-owner" name="playlist-owner" onchange="() => filterPlaylists()">
-        <label for="playlist-owner">Only display playlists you own</label>
+        <input type="checkbox" id="playlist-owner" name="playlist-owner" onclick="filterPlaylists">
+        <label for="playlist-owner" onclick="filterPlaylists">Only display playlists you own</label>
       </header>
       <container id="playlists"/>
     </section>
