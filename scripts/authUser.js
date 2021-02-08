@@ -1,6 +1,6 @@
 // code inspired by: https://github.com/mujibsardar/spotify_jquery_only/blob/master/script.js
 // https://www.youtube.com/watch?v=d0FFlTeyAY8
-import { getData } from "./getData.js";
+import { fetchData } from "./getData.js";
 
 // Authorizes the user and redirects if necessary
 export async function authUser(forceRedirect = false) {
@@ -22,7 +22,7 @@ export async function authUser(forceRedirect = false) {
   getAccessToken();
   const accessToken = localStorage.getItem("ranker-hash");
   if (accessToken) {
-    getUserData(accessToken)
+    getUserData(accessToken);
     return accessToken;
   } else {
     window.location.replace(authRedirect);
@@ -42,8 +42,12 @@ function getAccessToken() {
   }
 };
 
-function getUserData() {
-  getData(`https://api.spotify.com/v1/me`, (data) => {
-    console.log(data)
-  })
+function getUserData(accessToken {
+  fetchData(`https://api.spotify.com/v1/me`, accessToken).then(data) => {
+    if (!data.error) {
+      localStorage.setItem("ranker-user", data.id)
+    } else {
+      console.error(data.error);
+    }
+  }
 }

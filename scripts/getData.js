@@ -8,7 +8,7 @@ export function getData(url, callback) {
         callback(data);
       }
       else {
-        console.log(data.error);
+        console.error(data.error);
         if (data.error.message === "The access token expired") {
           // Force reauthorization (get a new access token)
           authUser(true);
