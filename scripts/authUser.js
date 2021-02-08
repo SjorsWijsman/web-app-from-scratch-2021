@@ -11,20 +11,23 @@ export async function authUser(forceRedirect = false) {
     `&response_type=token` +
     `&redirect_uri=${redirectUrl}`;
 
-  // Check for accessToken in hash, redirect if unauthorized
+  // Force redirect to spotify authorization
   if (forceRedirect) {
     window.location.replace(authRedirect);
   }
 
+  // Get accessToken from localStorage, if it doesn't exist:
+  // Redirect to spotify authorization
+  getAccessToken();
   const accessToken = localStorage.getItem("ranker-hash");
   if (accessToken) {
     return accessToken;
   } else {
-    getAccessToken();
+    window.location.replace(authRedirect);
   }
 };
 
-// Get access token from window hash value or return null
+// Get access token from window hash value and store in localStorage
 function getAccessToken() {
   const hashValue = window.location.hash;
   if (hashValue.includes("access_token=")) {
