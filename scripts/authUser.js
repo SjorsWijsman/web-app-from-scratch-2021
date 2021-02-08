@@ -43,11 +43,11 @@ function getAccessToken() {
 };
 
 function getUserData(accessToken) {
-  fetchData(`https://api.spotify.com/v1/me`, accessToken).then(data) => {
+  fetchData(`https://api.spotify.com/v1/me`, accessToken).then(data => {
     if (!data.error) {
       localStorage.setItem("ranker-user", data.id)
     } else {
       console.error(data.error);
     }
-  }
+  });
 }
