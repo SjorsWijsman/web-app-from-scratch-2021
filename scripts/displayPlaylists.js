@@ -9,7 +9,7 @@ export function displayPlaylists(data) {
     const playlistEl = document.createElement("DIV");
     playlistEl.classList.add("playlist");
 
-    playlistEl.dataset.owner = data.owner.id;
+    playlistEl.dataset.owner = playlist.owner.id;
 
     // Add playlist image as IMG element
     const image = document.createElement("IMG");
