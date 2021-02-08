@@ -1,6 +1,11 @@
+import { getData } from "./getData.js";
+import { openPlaylist } from "./openPlaylist.js";
+
 export function displayPlaylists(data) {
-  const container = document.getElementById("playlists-container");
+  const onlyOwner = document.getElementById("playlist-owner")
+  const container = document.getElementById("playlists");
   for (const playlist of data.items) {
+    console.log(playlist)
     // Create playlist container DIV element
     const playlistEl = document.createElement("DIV");
     playlistEl.classList.add("playlist");
@@ -14,6 +19,11 @@ export function displayPlaylists(data) {
     const title = document.createElement("P");
     title.innerHTML = playlist.name;
     playlistEl.appendChild(title);
+
+    // Get playlist onclick
+    playlistEl.onclick = () => {
+      getData(playlist.href, openPlaylist);
+    }
 
     // Append playlist element to playlists container
     container.appendChild(playlistEl);

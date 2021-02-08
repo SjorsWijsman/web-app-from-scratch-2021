@@ -1,19 +1,21 @@
-import { displayPlaylists } from "./displayPlaylists.js";
+import { authUser } from "./authUser.js";
 
 // Get data from url
-export function getData(accessToken) {
-  const userId = "me";
-  const baseUrl = "https://api.spotify.com/v1/me";
-  const playlistsUrl = `${baseUrl}/playlists?limit=50`;
-
-  fetchData(playlistsUrl, accessToken).then(data => {
-    if (!data.error) {
-      displayPlaylists(data);
-    }
-    else {
-      console.log(data.error);
-    }
-  })
+export function getData(url, callback) {
+  authUser().then(accessToken => {
+    fetchData(url, accessToken).then(data => {
+      if (!data.error) {
+        callback(data);
+      }
+      else {
+        console.log(data.error);
+        if (data.error.message === "The access token expired") {
+          // Force reauthorization (get a new access token)
+          authUser(true);
+        }
+      }
+    })
+  });
 }
 
 // Fetch data from Spotify API
@@ -23,5 +25,5 @@ export async function fetchData(url, accessToken) {
       "Authorization": `Bearer ${accessToken}`,
     },
   });
-  return response.json()
+  return response.json();
 }

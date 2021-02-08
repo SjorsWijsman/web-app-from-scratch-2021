@@ -12,18 +12,27 @@
 </head>
 <body>
   <header>
-    <section id="playlists-container">
-      <h2>Your Playlists</h2>
+    <section id="playlists-container"/>
+      <header>
+        <h2>Your Playlists</h2>
+        <input type="checkbox" id="playlist-owner" name="playlist-owner">
+        <label for="playlist-owner">Only display playlists you own</label>
+      </header>
+      <container id="playlists"/>
     </section>
   </header>
   <main>
     <section id="playlist-display">
-      <h1>Playlist Title</h1>
-      <img src="" alt="">
-      <a href="">Link to playlist</a>
+      <container id="playlist-info">
+        <img src="" alt="Playlist Cover Image">
+        <div>
+          <h1>Playlist Title</h1>
+          <a href="" target="_blank">Link to playlist</a>
+        </div>
+      </container>
+      <container id="playlist-tracks"/>
     </section>
   </main>
 </body>
-<script type="module" src="scripts/authUser.js"></script>
-<script type="module" src="scripts/getData.js"></script>
+<script type="module" src="scripts/startApp.js"></script>
 </html>

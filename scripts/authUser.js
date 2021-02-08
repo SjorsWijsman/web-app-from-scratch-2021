@@ -1,11 +1,8 @@
 // code inspired by: https://github.com/mujibsardar/spotify_jquery_only/blob/master/script.js
 // https://www.youtube.com/watch?v=d0FFlTeyAY8
-import { getData, fetchData } from "./getData.js";
-
-authUser();
 
 // Authorizes the user and redirects if necessary
-async function authUser() {
+export async function authUser(forceRedirect = false) {
   const clientId = "71c1e592b56c424caf9714524949cf26";
   const redirectUrl = "https%3A%2F%2Fsjorswijsman.github.io%2Fweb-app-from-scratch-2021";
   const authRedirect = `https://accounts.spotify.com/authorize` +
@@ -16,10 +13,10 @@ async function authUser() {
 
   // Check for accessToken in hash, redirect if unauthorized
   const accessToken = getAccessToken();
-  if (accessToken !== null) {
-    getData(accessToken);
-  } else {
+  if (accessToken === null || forceRedirect) {
     window.location.replace(authRedirect);
+  } else {
+    return accessToken;
   }
 };
 
