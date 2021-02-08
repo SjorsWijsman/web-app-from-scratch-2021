@@ -12,11 +12,15 @@ export async function authUser(forceRedirect = false) {
     `&redirect_uri=${redirectUrl}`;
 
   // Check for accessToken in hash, redirect if unauthorized
-  const accessToken = getAccessToken();
-  if (accessToken === null || forceRedirect) {
+  if (forceRedirect) {
     window.location.replace(authRedirect);
-  } else {
+  }
+
+  const accessToken = localStorage.getItem("ranker-hash");
+  if (accessToken) {
     return accessToken;
+  } else {
+    getAccessToken();
   }
 };
 
@@ -28,8 +32,7 @@ function getAccessToken() {
     const accessTokenValue = hashValue
       .split("access_token=").pop()
       .split("&")[0];
-    return accessTokenValue;
-  } else {
-    return null;
+    localStorage.setItem("ranker-hash", accessTokenValue);
+    window.location = window.location.href.split('#')[0];
   }
 };
