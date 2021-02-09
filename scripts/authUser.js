@@ -39,10 +39,7 @@ function getAccessToken() {
   for (const value of hashList) {
     if (value[0] === "access_token" && value[1]) {
       // https://stackoverflow.com/questions/14867835/get-substring-between-two-characters-using-javascript
-      const accessTokenValue = hashValue
-        .split("access_token=").pop()
-        .split("&")[0];
-      localStorage.setItem("ranker-hash", accessTokenValue);
+      localStorage.setItem("ranker-hash", value[1]);
     }
   }
 
