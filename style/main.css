@@ -47,6 +47,10 @@ h2 {
   margin-top: 1rem;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   display: grid;
   grid-template-columns: 20rem 1fr;
@@ -169,6 +173,10 @@ body {
   width: 6rem;
   margin-right: 2rem;
   background-color: var(--color-gray);
+}
+
+#playlist-info img {
+  text-decoration: underline;
 }
 
 #playlist-tracks {

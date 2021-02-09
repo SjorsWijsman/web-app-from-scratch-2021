@@ -1,13 +1,14 @@
 import { getData } from "./getData.js";
 import { openPlaylist } from "./openPlaylist.js";
+import { getHashValue } from "./hashTools.js";
 
 export function displayPlaylists(data) {
   const container = document.getElementById("playlists");
   for (const playlist of data.items) {
-
     // Create playlist container DIV element
-    const playlistEl = document.createElement("DIV");
+    const playlistEl = document.createElement("A");
     playlistEl.classList.add("playlist");
+    playlistEl.href = `#playlist=${playlist.id}`;
 
     playlistEl.dataset.owner = playlist.owner.id;
 

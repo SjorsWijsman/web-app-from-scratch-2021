@@ -18,6 +18,7 @@ export function createHashFromList(list) {
   return hash;
 }
 
+// Remove hash values from hash list according to removeList
 export function removeHashValues(list, removeList) {
   const filteredList = list.filter(value => {
     if (removeList.includes(value[0])) {
@@ -25,4 +26,15 @@ export function removeHashValues(list, removeList) {
     } return true;
   })
   return filteredList;
+}
+
+
+export function getHashValue(value) {
+  const hashList = createListFromHash(window.location.hash);
+  for (const item of hashList) {
+    if (item[0] === value) {
+      return item[1];
+    }
+  }
+  return null;
 }

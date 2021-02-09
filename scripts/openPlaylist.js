@@ -10,19 +10,17 @@ export function openPlaylist(data) {
 }
 
 function displayTracks(data) {
-  console.log(data)
   const tracksContainer = document.getElementById("playlist-table");
-
   tracksContainer.innerHTML = "";
 
   for (const [index, item] of data.items.entries()) {
-
-    // Index
+    // Display index
     tracksContainer.appendChild(tableData(index + 1));
 
+    // Map artists
     const artists = item.track.artists.map(item => item.name);
 
-    // Image, title, artist
+    // Display image, title, artist
     const trackInfo = tableData(
       `<img src="${item.track.album.images[2].url}" alt="Album Cover Image"/>` +
       `<div>

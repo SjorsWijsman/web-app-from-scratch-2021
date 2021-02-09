@@ -32,9 +32,8 @@ export async function authUser(forceRedirect = false) {
 
 // Get access token from window hash value and store in localStorage
 function getAccessToken() {
-  const hashValue = window.location.hash;
-
-  const hashList = createListFromHash(hashValue);
+  // Create hash list from window hash
+  const hashList = createListFromHash(window.location.hash);
 
   // Check if access_token is in hashList
   for (const value of hashList) {
@@ -58,7 +57,7 @@ function getAccessToken() {
   window.location.hash = newHash;
 };
 
-// Get current user data and store its id in localStorage
+// Get current user data, store its id in localStorage and display in app
 function getUserData(accessToken) {
   fetchData(`https://api.spotify.com/v1/me`, accessToken).then(data => {
     if (!data.error) {
