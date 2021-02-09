@@ -1,6 +1,7 @@
 // code inspired by: https://github.com/mujibsardar/spotify_jquery_only/blob/master/script.js
 // https://www.youtube.com/watch?v=d0FFlTeyAY8
 import { fetchData } from "./getData.js";
+import { createListFromHash, createHashFromList, removeHashValues } from "./hashTools.js";
 
 // Authorizes the user and redirects if necessary
 export async function authUser(forceRedirect = false) {
@@ -32,10 +33,9 @@ export async function authUser(forceRedirect = false) {
 // Get access token from window hash value and store in localStorage
 function getAccessToken() {
   const hashValue = window.location.hash;
-  // Remove #, split at & and split again at =
-  const hashList = hashValue.substring(1).split("&").map(value => {
-    return value.split("=")
-  });
+
+  const hashList = createListFromHash(hashValue);
+
   // Check if access_token is in hashList
   for (const value of hashList) {
     if (value[0] === "access_token" && value[1]) {
@@ -48,35 +48,22 @@ function getAccessToken() {
   }
 
   // Remove spotify hash values
-  const removeList = ["access_token", "token_type", "expires_in"]
-  const filteredHashList = hashList.filter(value => {
-    if (removeList.includes(value[0])) {
-      return false;
-    } return true;
-  })
+  const removeList = ["access_token", "token_type", "expires_in"];
+  const filteredHashList = removeHashValues(hashList, removeList);
 
   // Create new hash from filtered hash list
-  const newHash = createHashFromList(filteredHashList)
-  function createHashFromList(list) {
-    let hash = "#";
-    for (const [index, item] of list.entries()) {
-      hash += item.join("=");
-      if (list[index + 1]) {
-        hash += "&";
-      }
-    }
-    return hash;
-  }
+  const newHash = createHashFromList(filteredHashList);
 
   // Set window hash to new hash without spotify authorization bullshit
-  window.location.hash = newHash
+  window.location.hash = newHash;
 };
 
 // Get current user data and store its id in localStorage
 function getUserData(accessToken) {
   fetchData(`https://api.spotify.com/v1/me`, accessToken).then(data => {
     if (!data.error) {
-      localStorage.setItem("ranker-user", data.id)
+      localStorage.setItem("ranker-user", data.id);
+      document.getElementById("user").innerHTML = data.id;
     } else {
       console.error(data.error);
     }

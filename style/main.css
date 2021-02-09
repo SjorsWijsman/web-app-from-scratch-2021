@@ -52,6 +52,17 @@ body {
   grid-template-columns: 20rem 1fr;
 }
 
+#user {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  background-color: var(--color-gray);
+  opacity: 0.6;
+  padding: 0.3rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9;
+}
+
 /*
     Playlists overview
 */
