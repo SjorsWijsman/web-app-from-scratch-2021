@@ -8,14 +8,17 @@ export function createListFromHash(hash) {
 
 // Create hash from hash list (opposite of createListFromHash)
 export function createHashFromList(list) {
-  let hash = "#";
-  for (const [index, item] of list.entries()) {
-    hash += item.join("=");
-    if (list[index + 1]) {
-      hash += "&";
+  if (list.length > 0) {
+    let hash = "#";
+    for (const [index, item] of list.entries()) {
+      hash += item.join("=");
+      if (list[index + 1]) {
+        hash += "&";
+      }
     }
+    return hash;
   }
-  return hash;
+  return null;
 }
 
 // Remove hash values from hash list according to removeList
@@ -28,7 +31,7 @@ export function removeHashValues(list, removeList) {
   return filteredList;
 }
 
-
+// Gets value from hash
 export function getHashValue(value) {
   const hashList = createListFromHash(window.location.hash);
   for (const item of hashList) {
@@ -37,4 +40,10 @@ export function getHashValue(value) {
     }
   }
   return null;
+}
+
+// Get window location without hash
+export function getLocationWithoutHash() {
+  // https://stackoverflow.com/questions/5818269/javascript-window-location-href-without-hash/5818284
+  return location.href.replace(location.hash,"");
 }
