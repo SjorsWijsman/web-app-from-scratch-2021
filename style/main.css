@@ -159,3 +159,68 @@ body {
   margin-right: 2rem;
   background-color: var(--color-gray);
 }
+
+#playlist-tracks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+#playlist-tracks * {
+  font-size: 0.9rem;
+}
+
+#playlist-tracks > * {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+}
+
+#playlist-tracks header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-black-light);
+  padding: 1rem 0;
+}
+
+#playlist-tracks header * {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--color-blue);
+}
+
+#playlist-tracks > * > :nth-child(odd) {
+  text-align: right;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding-right: 1.5rem;
+  opacity: 0.8;
+}
+
+#playlist-table .track-info {
+  padding: 0.6rem 0;
+  display: flex;
+  align-items: center;
+}
+
+#playlist-table .track-info img {
+  height: 2.8rem;
+  padding-right: 0.7rem;
+}
+
+#playlist-table .track-info div {
+  display: flex;
+  flex-direction: column;
+}
+
+#playlist-table .track-info div :first-child {
+  font-size: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+
+#playlist-table .track-info div :last-child {
+  opacity: 0.8;
+}

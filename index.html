@@ -16,8 +16,8 @@
     <section id="playlists-container"/>
       <header>
         <h2>Your Playlists</h2>
-        <input type="checkbox" id="playlist-owner" name="playlist-owner" onclick="() => filterPlaylists()">
-        <label for="playlist-owner" onclick="() => filterPlaylists()">Only display playlists you own</label>
+        <input type="checkbox" id="playlist-owner" name="playlist-owner">
+        <label for="playlist-owner">Only display playlists you own</label>
       </header>
       <container id="playlists"/>
     </section>
@@ -31,7 +31,19 @@
           <a href="" target="_blank">Link to playlist</a>
         </div>
       </container>
-      <container id="playlist-tracks"/>
+      <container id="playlist-tracks" class="track-list">
+        <header>
+          <div>#</div>
+          <div>Title & Artist</div>
+        </header>
+        <div id="playlist-table">
+          <div></div>
+          <div class="track-info">
+            <img src="" alt="">
+            <div></div>
+          </div>
+        </div>
+      </container>
     </section>
   </main>
 </body>
