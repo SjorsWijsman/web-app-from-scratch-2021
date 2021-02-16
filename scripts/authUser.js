@@ -15,6 +15,7 @@ export async function authUser(forceRedirect = false) {
   getAccessToken();
   const accessToken = localStorage.getItem("ranker-token");
   if (accessToken) {
+    cleanUpUrl();
     getUserData(accessToken);
     return accessToken;
   } else {
@@ -34,6 +35,11 @@ function getAccessToken() {
       localStorage.setItem("ranker-token", value[1]);
     }
   }
+};
+
+// Removes spotify authorization hash values from url hash
+function cleanUpUrl() {
+  const hashList = createListFromHash(window.location.hash);
 
   // Remove spotify hash values
   const removeList = ["access_token", "token_type", "expires_in"];
@@ -45,8 +51,8 @@ function getAccessToken() {
   // Set window hash to new hash without spotify authorization bullshit
   if (newHash) {
     window.location.hash = newHash;
-  } else window.location = getLocationWithoutHash();
-};
+  }
+}
 
 // Redirect user to spotify authorization
 function redirectUserToAuth() {

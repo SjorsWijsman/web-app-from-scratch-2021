@@ -14,7 +14,10 @@ function getPlaylists() {
 checkForStashedHash();
 function checkForStashedHash() {
   const hash = localStorage.getItem("ranker-hash");
-  if (hash) window.location.hash = hash;
+  if (hash) {
+    localStorage.removeItem("ranker-hash");
+    window.location.hash = hash;
+  }
 }
 
 // Checks the hash for a playlist id to display
