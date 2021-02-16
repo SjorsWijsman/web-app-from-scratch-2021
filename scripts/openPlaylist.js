@@ -1,5 +1,6 @@
 import { getData } from "./getData.js";
 
+// Renders playlist info in the HTML
 export function openPlaylist(data) {
   const infoContainer = document.getElementById("playlist-info");
   infoContainer.getElementsByTagName("H1")[0].innerHTML = data.name;
@@ -9,6 +10,7 @@ export function openPlaylist(data) {
   getData(data.tracks.href, displayTracks);
 }
 
+// Renders all the playlist tracks in the HTML
 function displayTracks(data) {
   const tracksContainer = document.getElementById("playlist-table");
   tracksContainer.innerHTML = "";
