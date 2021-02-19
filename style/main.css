@@ -9,6 +9,7 @@ html {
   --max-content-width: 45rem;
   --height-header: 5rem;
   --height-footer: 7rem;
+  
   font-size: calc(60% + 0.8vmin);
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;

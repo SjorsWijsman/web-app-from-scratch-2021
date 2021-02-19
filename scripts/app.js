@@ -1,7 +1,7 @@
-import { getData } from "./getData.js";
-import { getHashValue } from "./hashTools.js";
-import { displayPlaylists } from "./displayPlaylists.js";
-import { openPlaylist } from "./openPlaylist.js";
+import { getData } from "./data/getData.js";
+import { getHashValue } from "./helpers/hashTools.js";
+import { displayPlaylists } from "./render/displayPlaylists.js";
+import { openPlaylist } from "./render/openPlaylist.js";
 
 // Gets the user's playlists
 getPlaylists();

@@ -1,4 +1,4 @@
-import { getData } from "./getData.js";
+import { getData } from "../data/getData.js";
 
 // Renders playlist info in the HTML
 export function openPlaylist(data) {

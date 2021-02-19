@@ -1,6 +1,6 @@
-import { getData } from "./getData.js";
-import { openPlaylist } from "./openPlaylist.js";
-import { getHashValue } from "./hashTools.js";
+import { getData } from "../data/getData.js";
+import { openPlaylist } from "../render/openPlaylist.js";
+import { getHashValue } from "../helpers/hashTools.js";
 
 export function displayPlaylists(data) {
   const container = document.getElementById("playlists");

@@ -1,7 +1,7 @@
 // code inspired by: https://github.com/mujibsardar/spotify_jquery_only/blob/master/script.js
 // https://www.youtube.com/watch?v=d0FFlTeyAY8
 import { fetchData } from "./getData.js";
-import { createListFromHash, createHashFromList, removeHashValues, getLocationWithoutHash } from "./hashTools.js";
+import { createListFromHash, createHashFromList, removeHashValues, getLocationWithoutHash } from "../helpers/hashTools.js";
 
 // Authorizes the user and redirects if necessary
 export async function authUser(forceRedirect = false) {
@@ -31,7 +31,6 @@ function getAccessToken() {
   // Check if access_token is in hashList
   for (const value of hashList) {
     if (value[0] === "access_token" && value[1]) {
-      // https://stackoverflow.com/questions/14867835/get-substring-between-two-characters-using-javascript
       localStorage.setItem("ranker-token", value[1]);
     }
   }
@@ -71,12 +70,13 @@ function redirectUserToAuth() {
 
 // Get current user data, store its id in localStorage and display in app
 function getUserData(accessToken) {
-  fetchData(`https://api.spotify.com/v1/me`, accessToken).then(data => {
-    if (!data.error) {
+  // use fetchData directly to prevent an infinite fetch loop (instead of getData)
+  fetchData(`https://api.spotify.com/v1/me`, accessToken)
+    .then(data => {
       localStorage.setItem("ranker-user", data.id);
       document.getElementById("user").innerHTML = data.id;
-    } else {
-      console.error(data.error);
-    }
-  });
+    })
+    .catch(e => {
+      console.error(e)
+    })
 }

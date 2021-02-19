@@ -3,18 +3,18 @@ import { authUser } from "./authUser.js";
 // Get data from url
 export function getData(url, callback) {
   authUser().then(accessToken => {
-    fetchData(url, accessToken).then(data => {
-      if (!data.error) {
-        callback(data);
-      }
-      else {
-        console.error(data.error);
-        if (data.error.message === "The access token expired") {
-          // Force reauthorization (get a new access token)
-          authUser(true);
+    fetchData(url, accessToken)
+      .then(data => {
+        if (data.error) {
+          console.error(data.error);
+          if (data.error.message === "The access token expired") {
+            // Force reauthorization (get a new access token)
+            authUser(true);
+          }
+        } else {
+          callback(data)
         }
-      }
-    })
+      })
   });
 }
 
