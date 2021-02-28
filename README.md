@@ -19,8 +19,9 @@ TODO
 TODO
 
 ### Docs
-**Actor Diagram**
-TODO
+**Actor Diagram** 
+
+![Actor diagram](https://github.com/SjorsWijsman/web-app-from-scratch-2021/blob/master/docs/actordiagram.png?raw=true)
 
 **Interaction Diagram**
 TODO
