@@ -38,10 +38,10 @@ python -m SimpleHTTPServer 8000
 
 ### Docs
 **Actor Diagram** 
-![Actor diagram](https://github.com/SjorsWijsman/web-app-from-scratch-2021/blob/master/docs/actordiagram.png?raw=true)
+![Actor diagram](https://raw.githubusercontent.com/SjorsWijsman/web-app-from-scratch-2021/6867ef5c13ab387c08f21df0052b6c9d284469c5/docs/actordiagram.svg)
 
 **Interaction Diagram**
-![Interaction diagram]()
+![Interaction diagram](https://raw.githubusercontent.com/SjorsWijsman/web-app-from-scratch-2021/6867ef5c13ab387c08f21df0052b6c9d284469c5/docs/interactiondiagram.svg)
 
 ### API
 Spotify Web API docs: https://developer.spotify.com/documentation/web-api/
