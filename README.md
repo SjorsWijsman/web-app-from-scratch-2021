@@ -9,10 +9,10 @@ This project was created as an excercise for the Web Development & Design minor 
 ## Table of Contents
 <table>
     <tr>
-        <td align="center"><a href="#features">⭐ Features<a></td>
-        <td align="center"><a href="#installation">⚙️ Installation<a></td>
-        <td align="center"><a href="#docs">📕 Docs<a></td>
-        <td align="center"><a href="#api">🎵 API<a></td>
+        <td align="center"><a href="#-features">⭐ Features<a></td>
+        <td align="center"><a href="#%EF%B8%8F-installation">⚙️ Installation<a></td>
+        <td align="center"><a href="#-docs">📕 Docs<a></td>
+        <td align="center"><a href="#-api">🎵 API<a></td>
     </tr>
 </table>
           
