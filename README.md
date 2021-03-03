@@ -9,14 +9,14 @@ This project was created as an excercise for the Web Development & Design minor 
 ## Table of Contents
 <table>
     <tr>
-        <td align="center"><a href="#features">Features<a></td>
-        <td align="center"><a href="#installation">Installation<a></td>
-        <td align="center"><a href="#docs">Docs<a></td>
-        <td align="center"><a href="#api">API<a></td>
+        <td align="center"><a href="#features">⭐ Features<a></td>
+        <td align="center"><a href="#installation">⚙️ Installation<a></td>
+        <td align="center"><a href="#docs">📕 Docs<a></td>
+        <td align="center"><a href="#api">🎵 API<a></td>
     </tr>
 </table>
           
-### Features
+### ⭐ Features
 - Seamless Spotify API Authorization & Reauthorization in pure JavaScript
 - An overview of all your playlists, allowing you to filter by playlist owner
 - Displays the first 100 tracks in any playlist by using the playlist ID
@@ -26,7 +26,7 @@ TODO:
 - Playlist Search
 - Allowing users to use the app without authorization
 
-### Installation
+### ⚙️ Installation
 This project was made developed any dependencies and doesn't require you to install anything. Simply clone this repo and open the index.html file in a modern browser:
 ```
 git clone https://github.com/SjorsWijsman/web-app-from-scratch-2021.git
@@ -36,14 +36,14 @@ Optionally run a live server by using your preferred Code Editor live server plu
 python -m SimpleHTTPServer 8000  
 ```
 
-### Docs
+### 📕 Docs
 **Actor Diagram** 
 ![Actor diagram](https://raw.githubusercontent.com/SjorsWijsman/web-app-from-scratch-2021/6867ef5c13ab387c08f21df0052b6c9d284469c5/docs/actordiagram.svg)
 
 **Interaction Diagram**
-![Interaction diagram](https://raw.githubusercontent.com/SjorsWijsman/web-app-from-scratch-2021/6867ef5c13ab387c08f21df0052b6c9d284469c5/docs/interactiondiagram.svg)
+![Interaction diagram](https://raw.githubusercontent.com/SjorsWijsman/web-app-from-scratch-2021/021f7b29e0cb76cb258d59b2ae0e85908d9956a8/docs/interactiondiagram.svg)
 
-### API
+### 🎵 API
 Spotify Web API docs: https://developer.spotify.com/documentation/web-api/
 
 _The app performs two fetches from the API after user authorization from these endpoints:_  
